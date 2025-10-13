@@ -1,0 +1,30 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: tlgp-order-service
+  profiles:
+    active: dev # 激活 dev 环境
+  config:
+    import:
+#      - nacos:tlgp2-service.yaml # 从 Nacos 加载配置
+        - optional:nacos:application-${spring.profiles.active}.yml  # 加载 application-dev.yml (公共配置)
+        - optional:nacos:${spring.application.name}-${spring.profiles.active}.yml # 加载 tlgp2-service-dev.yml (服务特定配置)
+
+
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848 # Nacos 配置中心地址
+        file-extension: yaml
+        namespace: public # 指定为 dev 命名空间的 ID
+      discovery:
+        server-addr: localhost:8848 # Nacos 注册中心地址
+        namespace: public # 注册中心也可以使用命名空间隔离
+
+# (可选) 暴露刷新端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh

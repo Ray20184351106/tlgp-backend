@@ -13,8 +13,8 @@
     <modules>
         <module>tlgp-common</module>
         <module>tlgp-order-service</module>
-<!--        <module>tlgp-user-service</module>-->
-        <!-- <module>tlgp-gateway</module> --> <!-- 可选，先不加 -->
+        <module>tlgp-user-service</module>
+         <module>tlgp-gateway</module>
     </modules>
 
     <properties>

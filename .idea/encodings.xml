@@ -7,6 +7,8 @@
     <file url="file://$PROJECT_DIR$/tlgp-common/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tlgp-order-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tlgp-order-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tlgp-user-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tlgp-user-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tlgp2/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tlgp2/src/main/resources" charset="UTF-8" />
   </component>

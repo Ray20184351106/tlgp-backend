@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="tlgp2" />
+        <module name="tlgp-user-service" />
         <module name="tlgp-order-service" />
         <module name="tlgp-common" />
       </profile>

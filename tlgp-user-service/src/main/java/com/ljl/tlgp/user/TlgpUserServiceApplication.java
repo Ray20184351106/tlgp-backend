@@ -1,4 +1,4 @@
-package com.ljl.tlgp.order;
+package com.ljl.tlgp.user;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,10 +7,11 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class TlgpOrderServiceApplication {
+@EnableConfigurationProperties(JwtProperties.class) // 添加此注解
+public class TlgpUserServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(TlgpOrderServiceApplication.class, args);
+        SpringApplication.run(TlgpUserServiceApplication.class, args);
     }
 
 }

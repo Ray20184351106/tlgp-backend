@@ -32,3 +32,9 @@ management:
     web:
       exposure:
         include: refresh
+
+
+# 添加日志配置
+logging:
+  level:
+    root: INFO # 设置根日志级别为 INFO

@@ -13,7 +13,7 @@ import java.util.Map;
 
 // src/main/java/com/example/demo/controller/FirmController.java
 @RestController
-@RequestMapping("/api/firms")
+@RequestMapping("/firms")
 public class FirmController {
     private final FirmService firmService;
 

@@ -30,10 +30,17 @@ management:
         include: refresh
 
 # 添加 JWT 配置
-app:
-  jwt:
-    secret: "WW91clZlcnlTZWNyZXRLZXlGb3JKV1RHZW5lcmF0aW9uQW5kVmVyaWZpY2F0aW9u" # 替换为你的实际密钥
-    # 或者使用 base64 编码的密钥
-    # secret: "WW91clZlcnlTZWNyZXRLZXlGb3JKV1RHZW5lcmF0aW9uQW5kVmVyaWZpY2F0aW9u" # 示例，实际使用时请生成一个安全的密钥并编码
-    access-token-expiration: 86400000  # 1 day in milliseconds
-    refresh-token-expiration: 604800000 # 7 days in milliseconds
+#app:
+#  jwt:
+#    secret: "WW91clZlcnlTZWNyZXRLZXlGb3JKV1RHZW5lcmF0aW9uQW5kVmVyaWZpY2F0aW9u" # 替换为你的实际密钥
+#    # 或者使用 base64 编码的密钥
+#    # secret: "WW91clZlcnlTZWNyZXRLZXlGb3JKV1RHZW5lcmF0aW9uQW5kVmVyaWZpY2F0aW9u" # 示例，实际使用时请生成一个安全的密钥并编码
+#    access-token-expiration: 86400000  # 1 day in milliseconds
+#    refresh-token-expiration: 604800000 # 7 days in milliseconds
+
+# 添加日志配置
+logging:
+  level:
+    root: INFO # 设置根日志级别为 INFO
+#    org.springframework.cloud.gateway: DEBUG # 设置 Spring Cloud Gateway 的日志级别为 DEBUG，以便看到路由和转发的详细信息
+#    com.alibaba.nacos: DEBUG # 设置 Nacos 相关日志级别为 DEBUG，以便看到服务发现的详细信息

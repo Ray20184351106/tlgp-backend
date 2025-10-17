@@ -1,0 +1,57 @@
+spring:
+  application:
+    name: tlgp-gateway
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 # 连接到 Nacos 服务器
+        locator:
+          enabled: false
+    gateway:
+      discovery:
+        locator:
+          enabled: true # 启用服务发现路由，根据服务名自动创建路由
+          lower-case-service-id: true # 服务 ID 转小写
+      routes:
+        - id: user-service-route
+          uri: lb://tlgp-user-service # 使用 lb:// 协议，启用负载均衡
+#          uri: http://192.168.30.158:8082
+          predicates:
+            - Path=/api/auth/** # 路径匹配
+          filters:
+            - StripPrefix=1 # 转发前去掉 /api/auth 前缀
+        - id: order-service-route
+          uri: lb://tlgp-order-service
+#          uri: http://192.168.30.158:8081
+          predicates:
+            - Path=/api/firms/**
+          filters:
+            - StripPrefix=1
+      # (可选) 全局 CORS 配置
+      globalcors:
+        cors-configurations:
+          '[/**]': # Apply to all paths
+            allowedOriginPatterns: "http://localhost:5173" # Allow your frontend origin
+            allowedMethods: "*" # Allow all methods
+            allowedHeaders: "*" # Allow all headers
+            allowCredentials: true # Allow credentials
+
+server:
+  port: 9000 # 网关端口
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+
+# 添加日志配置
+logging:
+  level:
+    root: INFO # 设置根日志级别为 INFO
+    org.springframework.cloud.gateway: DEBUG # 设置 Spring Cloud Gateway 的日志级别为 DEBUG，以便看到路由和转发的详细信息
+    org.springframework.cloud.loadbalancer: DEBUG # 添加这行
+    reactor.netty: DEBUG # 添加这行，查看 Netty 客户端的详细信息
+    com.alibaba.nacos: DEBUG # 设置 Nacos 相关日志级别为 DEBUG，以便看到服务发现的详细信息

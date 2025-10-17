@@ -32,8 +32,10 @@ public class FirmService {
     public Firm updateFirm(Long id, Firm firmDetails) {
         Firm firm = firmRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Firm not found"));
-
         firm.setFirmname(firmDetails.getFirmname());
+        firm.setMarketvalue(firmDetails.getMarketvalue());
+        firm.setFirmintro(firmDetails.getFirmintro());
+        firm.setMarkettime(firmDetails.getMarkettime());
         return firmRepository.save(firm);
     }
 

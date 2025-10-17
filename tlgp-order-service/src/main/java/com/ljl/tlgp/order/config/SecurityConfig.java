@@ -16,7 +16,7 @@ import java.util.List;
 @EnableWebSecurity
 public class SecurityConfig {
     //用于解决跨域问题
-    
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -24,11 +24,12 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable()) // CSRF 配置方式改变
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/api/**").permitAll() // 替代 antMatchers
-                        .requestMatchers("/api/auth/**").permitAll() // Actuator 监控接口
+                        .requestMatchers("/api/firms/**").permitAll() // Actuator 监控接口
+                        .requestMatchers("/firms/**").permitAll() // Actuator 监控接口
                         .anyRequest().authenticated()
                 )
                 .httpBasic(httpBasic -> {}); // HTTP Basic 认证配置
-        
+
         return http.build();
     }
     @Bean

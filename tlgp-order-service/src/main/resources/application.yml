@@ -11,7 +11,6 @@ spring:
         - optional:nacos:application-${spring.profiles.active}.yml  # 加载 application-dev.yml (公共配置)
         - optional:nacos:${spring.application.name}-${spring.profiles.active}.yml # 加载 tlgp2-service-dev.yml (服务特定配置)
 
-
   cloud:
     nacos:
       config:
@@ -22,12 +21,6 @@ spring:
         server-addr: localhost:8848 # Nacos 注册中心地址
         namespace: public # 注册中心也可以使用命名空间隔离
 
-# (可选) 暴露刷新端点
-management:
-  endpoints:
-    web:
-      exposure:
-        include: refresh
 
 # 添加 JWT 配置
 #app:
@@ -37,10 +30,3 @@ management:
 #    # secret: "WW91clZlcnlTZWNyZXRLZXlGb3JKV1RHZW5lcmF0aW9uQW5kVmVyaWZpY2F0aW9u" # 示例，实际使用时请生成一个安全的密钥并编码
 #    access-token-expiration: 86400000  # 1 day in milliseconds
 #    refresh-token-expiration: 604800000 # 7 days in milliseconds
-
-# 添加日志配置
-logging:
-  level:
-    root: INFO # 设置根日志级别为 INFO
-#    org.springframework.cloud.gateway: DEBUG # 设置 Spring Cloud Gateway 的日志级别为 DEBUG，以便看到路由和转发的详细信息
-#    com.alibaba.nacos: DEBUG # 设置 Nacos 相关日志级别为 DEBUG，以便看到服务发现的详细信息

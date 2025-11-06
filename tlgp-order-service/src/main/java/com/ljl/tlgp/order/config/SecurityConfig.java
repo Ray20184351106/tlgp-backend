@@ -22,12 +22,12 @@ public class SecurityConfig {
         http
                 .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Enable CORS and set configuration source
                 .csrf(csrf -> csrf.disable()) // CSRF 配置方式改变
-                .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/api/**").permitAll() // 替代 antMatchers
-                        .requestMatchers("/api/firms/**").permitAll() // Actuator 监控接口
-                        .requestMatchers("/firms/**").permitAll() // Actuator 监控接口
-                        .anyRequest().authenticated()
-                )
+//                .authorizeHttpRequests(authz -> authz
+//                        .requestMatchers("/api/**").permitAll() // 替代 antMatchers
+////                        .requestMatchers("/api/firms/**").permitAll() // Actuator 监控接口
+//                        .requestMatchers("/firms/**").permitAll() // Actuator 监控接口
+//                        .anyRequest().authenticated()
+//                )
                 .httpBasic(httpBasic -> {}); // HTTP Basic 认证配置
 
         return http.build();

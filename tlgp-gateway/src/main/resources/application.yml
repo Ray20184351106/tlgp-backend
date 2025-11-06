@@ -29,23 +29,26 @@ spring:
             - Path=/api/firms/**
           filters:
             - StripPrefix=1
-      # (可选) 全局 CORS 配置
+      # 全局 CORS 配置
       globalcors:
         cors-configurations:
           '[/**]': # Apply to all paths
             allowedOriginPatterns: "http://localhost:5173" # Allow your frontend origin
-            allowedMethods: "*" # Allow all methods
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS # 非常重要，浏览器预检请求需要
+              - HEAD
+              - PATCH
             allowedHeaders: "*" # Allow all headers
             allowCredentials: true # Allow credentials
-
+            maxAge: 3600 # 预检请求缓存时间(秒)，可以减少 OPTIONS 请求频率
+            # ---- CORS 配置结束 ----
 server:
   port: 9000 # 网关端口
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: refresh
 
 # 添加日志配置
 logging:

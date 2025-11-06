@@ -26,15 +26,3 @@ spring:
 
 server:
   port: 8082 # Use a different port
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: refresh
-
-
-# 添加日志配置
-logging:
-  level:
-    root: INFO # 设置根日志级别为 INFO

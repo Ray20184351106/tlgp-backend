@@ -10,17 +10,20 @@
     {
       "name": "app.jwt.access-token-expiration",
       "type": "java.lang.Long",
-      "sourceType": "com.ljl.tlgp.user.JwtProperties"
+      "sourceType": "com.ljl.tlgp.user.JwtProperties",
+      "defaultValue": 0
     },
     {
       "name": "app.jwt.expiration",
       "type": "java.lang.Long",
-      "sourceType": "com.ljl.tlgp.user.JwtProperties"
+      "sourceType": "com.ljl.tlgp.user.JwtProperties",
+      "defaultValue": 0
     },
     {
       "name": "app.jwt.refresh-token-expiration",
       "type": "java.lang.Long",
-      "sourceType": "com.ljl.tlgp.user.JwtProperties"
+      "sourceType": "com.ljl.tlgp.user.JwtProperties",
+      "defaultValue": 0
     },
     {
       "name": "app.jwt.secret",

@@ -19,7 +19,7 @@ services:
         # 数据库用户名应为 'app_user'，密码应为 'YourActualAppUserPassword'
         # 数据库名应为 'myapp_db'
     nacos:
-        image: nacos/nacos-server:v2.2.3 # 选择合适的 Nacos 版本
+        image: nacos-registry.cn-hangzhou.cr.aliyuncs.com/nacos/nacos-server:v2.2.3 # 选择合适的 Nacos 版本
         container_name: nacos
         restart: always
         environment:

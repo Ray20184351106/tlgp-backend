@@ -1,4 +1,4 @@
-version: '3.8' # 使用较新的版本
+#version: '3.8' # 使用较新的版本
 services:
     mysql:
         image: mysql:8.0 # 选择合适的 MySQL 版本

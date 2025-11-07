@@ -1,5 +1,5 @@
 # 使用 Java 8 基础镜像
-FROM openjdk:17-jre-alpine
+FROM openjdk:17
 # 维护者信息
 LABEL maintainer="ljl@example.com"
 # 将本地 jar 包复制到容器中

@@ -67,6 +67,15 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring.boot.version}</version>
+                <executions>
+                    <!-- 确保 repackage 目标被包含 -->
+                    <execution>
+                        <id>repackage</id>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

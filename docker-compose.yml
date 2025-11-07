@@ -9,10 +9,10 @@ services:
             MYSQL_DATABASE: tlgp # 启动时创建数据库，根据需要修改
             MYSQL_USER: user # 启动时创建用户，根据需要修改
             MYSQL_PASSWORD: mysql # 为新用户设置密码，必须修改！
-        # ports: # 生产环境建议注释掉，内部服务通过服务名访问
-        #   - "3306:3306"
+        ports: # 生产环境建议注释掉，内部服务通过服务名访问
+            - "3306:3306"
         volumes:
-            - /opt/my-microservice/mysql/conf/my.cnf:/etc/mysql/conf.d/my.cnf # 可选：自定义配置
+            # - /opt/my-microservice/mysql/conf/my.cnf:/etc/mysql/conf.d/my.cnf # 可选：自定义配置
             - /opt/my-microservice/mysql/data:/var/lib/mysql # 挂载数据目录，持久化数据，路径已修正
         command: --default-authentication-plugin=mysql_native_password # 解决一些连接问题
         # 注意：如果使用了 MYSQL_USER 和 MYSQL_PASSWORD，你的微服务配置文件中
@@ -28,7 +28,7 @@ services:
             - MYSQL_SERVICE_HOST=mysql # 如果使用 MySQL 存储配置，指向 MySQL 服务名
             - MYSQL_SERVICE_PORT=3306
             - MYSQL_SERVICE_DB_NAME=tlgp # 数据库名
-            - MYSQL_SERVICE_USER=user # 用户名
+            - MYSQL_SERVICE_USER=root # 用户名
             - MYSQL_SERVICE_PASSWORD=mysql # 密码，与 MySQL 设置一致
             - NACOS_SERVER_IP=8.162.4.221 # 重要：设置为你的阿里云服务器公网 IP，确保客户端能正确连接
         ports:
@@ -39,7 +39,7 @@ services:
             - mysql # 确保 Nacos 在 MySQL 启动后再启动
         volumes:
             - /opt/my-microservice/nacos/logs:/home/nacos/logs # 挂载日志目录
-            - /opt/my-microservice/nacos/init.d/custom.properties:/home/nacos/init.d/custom.properties # 挂载自定义配置文件 (可选)
+            # - /opt/my-microservice/nacos/init.d/custom.properties:/home/nacos/init.d/custom.properties # 挂载自定义配置文件 (可选)
     tlgp-gateway: # 服务名
         # 如果镜像已构建好并推送到仓库
         # image: your-registry/user-service:v1.0

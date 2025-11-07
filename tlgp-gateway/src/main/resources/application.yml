@@ -6,7 +6,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848 # 连接到 Nacos 服务器
+        server-addr: 8.162.4.221:8848 # 连接到 Nacos 服务器
         locator:
           enabled: false
     gateway:

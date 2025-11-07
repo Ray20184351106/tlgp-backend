@@ -42,7 +42,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.tlgp.gateway.TlgpGatewayApplication</mainClass>
+                    <mainClass>com.ljl.tlgp.gateway.TlgpGatewayApplication</mainClass>
                     <!--                    <skip>true</skip>-->
                 </configuration>
             </plugin>

@@ -92,7 +92,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.tlgp.user.TlgpUserServiceApplication</mainClass>
+                    <mainClass>com.ljl.tlgp.user.TlgpUserServiceApplication</mainClass>
                     <!--                    <skip>true</skip>-->
                 </configuration>
             </plugin>

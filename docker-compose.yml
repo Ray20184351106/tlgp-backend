@@ -52,7 +52,7 @@ services:
         ports:
             - "9000:9000" # 将容器端口映射到主机端口
         environment:
-            - SPRING_PROFILES_ACTIVE=docker # 指定 Spring 配置文件环境
+            - SPRING_PROFILES_ACTIVE=dev # 指定 Spring 配置文件环境
         # - NACOS_SERVER_ADDR=nacos:8848 # 指向 Nacos 服务，使用服务名
         # - MYSQL_HOST=mysql # 指向 MySQL 服务，使用服务名
         # - MYSQL_PORT=3306

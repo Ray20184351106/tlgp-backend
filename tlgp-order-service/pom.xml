@@ -166,6 +166,13 @@
                     <mainClass>com.ljl.tlgp.order.TlgpOrderServiceApplication</mainClass>
 <!--                    <skip>true</skip>-->
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal> <!-- 这个 goal 是关键，负责创建可执行 JAR -->
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
